@@ -1,0 +1,39 @@
+/*=========================================================================
+
+  Name:        vtkMultiChannelConfigure.h
+
+  Author:      David Borland, The Renaissance Computing Institute (RENCI)
+
+  Copyright:   The Renaissance Computing Institute (RENCI)
+
+  License:     Licensed under the RENCI Open Source Software License v. 1.0.
+               
+               See included License.txt or 
+               http://www.renci.org/resources/open-source-software-license
+               for details.
+
+=========================================================================*/
+
+#ifndef vtkMultiChannelConfigure_h
+#define vtkMultiChannelConfigure_h
+
+#cmakedefine vtkMultiChannel_BUILD_SHARED_LIBS
+#ifndef vtkMultiChannel_BUILD_SHARED_LIBS
+# define vtkMultiChannel_STATIC
+#endif
+
+#if defined(_MSC_VER) && !defined(vtkMultiChannel_STATIC)
+# pragma warning ( disable : 4275 )
+#endif
+
+#if defined(WIN32) && !defined(vtkMultiChannel_STATIC)
+# if defined(vtkMultiChannel_EXPORTS)
+#  define VTK_MULTICHANNEL_EXPORT __declspec( dllexport ) 
+# else
+#  define VTK_MULTICHANNEL_EXPORT __declspec( dllimport ) 
+# endif
+#else
+# define VTK_MULTICHANNEL_EXPORT
+#endif
+
+#endif
