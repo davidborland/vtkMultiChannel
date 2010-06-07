@@ -171,6 +171,8 @@ vtkRenderer *vtkMultiChannelRenderWindowManager::GetRenderer()
   vtkOpenGLMultiChannelCamera *camera = vtkOpenGLMultiChannelCamera::New();
   renderer->SetActiveCamera(camera);
 
+  camera->Delete();
+
   return renderer;
 }
 
