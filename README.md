@@ -1,4 +1,5 @@
 # vtkMultiChannel
+Adds rendering multiple views of a VTK scene (to support passive stereo, for example) using a single window and renderer.
 
 Python notes:	
 * Should only build in Release mode.  
